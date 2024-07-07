@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es-mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./src/img/mini-pod.png" type="image/x-icon">
+    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="./src/css/normalize.css">
+    <title>Encriptador - Challenge</title>
+</head>
+
+
+<body>
+    <header class="header">
+        <img class="header__img" src="./src/img/pod-grande.png" alt="">
+        <h1 class="header__title" >Encriptador / Desencriptador </h1>
+    </header>    
+
+    <main class="main">
+        <section class="main__content">
+            <textarea name="content__text" id="content__text" placeholder="Ingresa el texto aqui..."></textarea>
+            <p class="content__warning" >Solo letras minusculas y sin acentos </p>
+
+            <div class="content__buttons">
+                <a class="content__button content__button--encrypt">Encriptar</a>
+                <a class="content__button content__button--decrypt">Desencriptar</a>
+            </div>
+
+        </section>
+    </main>
+    
+    <aside class="aside">
+        <img class="aside__img" src="./src/img/Muñeco.png" alt="">
+        <h2 class="aside__title">Ningun mensaje fue encontrado</h2>
+        <p class="aside__info">Ingrese el texto a encriptar o desencriptar</p>
+        <textarea name="aside__text" id="aside__text"></textarea>
+        <a class="content__button content__button--copy">Copiar</a>
+    </aside>
+</body>
+
+
+</html>
