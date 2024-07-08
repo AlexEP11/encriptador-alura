@@ -4,6 +4,7 @@
     --color-principal: #f1f0ec;
     --color-secundario: #a33923;
     --color-terciario: #b4ac9c;
+    --color-resultado: grey;
 
 
     --fnt-principal: "Montserrat", sans-serif;
@@ -47,7 +48,7 @@ h1, h2 {
     gap: 3rem;
 }
 
-#content__text {
+#content__text{
     margin: 0rem 2.5rem;
     width: 45rem;
     height: 20rem;
@@ -111,6 +112,7 @@ h1, h2 {
 .button--copy {
     border: 1px solid #000000;
     background-color: #FFFFFF;
+    margin-top: auto;
 }
 
 
@@ -121,7 +123,7 @@ h1, h2 {
 }
 
 
-.aside {
+.aside{
     box-shadow: 1px 1px 10px 1px #dad9d5;
     height: 25rem;
     margin: 0rem 2.5rem;
@@ -133,6 +135,18 @@ h1, h2 {
     text-align: center;
     align-items: center;
     border-radius: 1.5rem;
+}
+
+#resultado {
+    font-family: var(--fnt-principal);
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-resultado);
+    width: 25rem;
+    height: 20rem;
+    border: none;
+    outline: none;
+    resize: none;
 }
 
 .aside__img {
@@ -185,8 +199,13 @@ h1, h2 {
         max-width: 85%;
     }
 
+
     .aside {
         max-width: 85%;
+    }
+
+    #resultado {
+        width: 35rem;
     }
     
 }
@@ -205,6 +224,11 @@ h1, h2 {
     .button {
         width: 85%;
     }
+
+    #resultado {
+        width: 15rem;
+    }
+    
 }
 
 @media (max-width: 376px) {
