@@ -10,11 +10,21 @@
     --fnt-secundaria: "Inter", sans-serif;
 }
 
+html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 body {
     background-color: var(--color-principal);
     margin: 1.5rem auto;
-    width: 1400px;
+    max-width: 1400px;
+
 }
+
 
 p {
     font-family: var(--fnt-secundaria);
@@ -114,6 +124,7 @@ h1, h2 {
 .aside {
     box-shadow: 1px 1px 10px 1px #dad9d5;
     height: 25rem;
+    margin: 0rem 2.5rem;
     padding: 1.2rem;
     background-color: #FFFFFF;
     display: flex;
@@ -149,4 +160,60 @@ h1, h2 {
 
 .red__link::before {
     content: url(../img/brand-linkedin.svg);
+}
+
+.hide {
+    display: none;
+}
+
+/* Media Querys */
+@media (max-width: 768px ) {
+    
+    html {
+        display: block;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    #content__text {
+        max-width: 85%;
+    }
+
+    .aside {
+        max-width: 85%;
+    }
+    
+}
+
+@media (max-width: 480px) {
+    #content__text {
+        margin: 0 1rem;
+    }
+
+    .content__button {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .button {
+        width: 85%;
+    }
+}
+
+@media (max-width: 376px) {
+    .header__img {
+        width: 20%;
+    }
+
+    #content__text {
+        margin: 0 .8rem;
+    }
+
 }
