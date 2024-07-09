@@ -7,7 +7,7 @@ const imgCompu = document.querySelector(".aside__img");
 const tituloAside = document.querySelector(".aside__title");
 const infoAside = document.querySelector(".aside__info");
 const pod = document.querySelector(".header__img");
-const regex = /^[A-ZÁÉÍÓÚÜÑáéíóúüñ]+$/u;
+const regex = /^[^A-ZÁÉÍÓÚÜÑáéíóúüñ]+$/;
 let resultadoExistente = document.querySelector("#resultado");
 
 botonEncriptar.addEventListener("click", encriptar);
@@ -22,7 +22,7 @@ function encriptar() {
 		return alert(
 			"Necesita ingresar un texto para encriptar o desencriptar"
 		);
-	if (regex.test(texto))
+	if (!regex.test(texto))
 		return alert("Todo el texto debe estar en minúsculas y sin acentos");
 	let textoEncriptado = "";
 
@@ -59,7 +59,7 @@ function desencriptar() {
 		return alert(
 			"Necesita ingresar un texto para encriptar o desencriptar"
 		);
-	if (regex.test(texto))
+	if (!regex.test(texto))
 		return alert("Todo el texto debe estar en minúsculas y sin acentos");
 
 	let textoEncriptado = "";
