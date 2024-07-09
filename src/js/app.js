@@ -6,19 +6,21 @@ const botonCopiar = document.querySelector(".button--copy");
 const imgCompu = document.querySelector(".aside__img");
 const tituloAside = document.querySelector(".aside__title");
 const infoAside = document.querySelector(".aside__info");
-let resultadoExistente = document.querySelector("#resultado");
+const pod = document.querySelector(".header__img");
 const regex = /^[A-ZÁÉÍÓÚÜÑáéíóúüñ]+$/u;
+let resultadoExistente = document.querySelector("#resultado");
 
 botonEncriptar.addEventListener("click", encriptar);
 botonDesencriptar.addEventListener("click", desencriptar);
 botonCopiar.addEventListener("click", copiar);
+pod.addEventListener("click", modoOscuro);
 
 /*  Funciones */
 function encriptar() {
 	const texto = campoTexto.value;
-	if (texto.trim() === "")
+	if (texto.trim() === "" || !isNaN(texto))
 		return alert(
-			"Necesita ingresar un valor para encriptar o desencriptar"
+			"Necesita ingresar un texto para encriptar o desencriptar"
 		);
 	if (regex.test(texto))
 		return alert("Todo el texto debe estar en minúsculas y sin acentos");
@@ -53,9 +55,9 @@ function encriptar() {
 
 function desencriptar() {
 	const texto = campoTexto.value;
-	if (texto.trim() === "")
+	if (texto.trim() === "" || !isNaN(texto))
 		return alert(
-			"Necesita ingresar un valor para encriptar o desencriptar"
+			"Necesita ingresar un texto para encriptar o desencriptar"
 		);
 	if (regex.test(texto))
 		return alert("Todo el texto debe estar en minúsculas y sin acentos");
@@ -129,4 +131,9 @@ function alertaCopiado() {
 		botonCopiar.classList.remove("hide");
 		divAlerta.remove();
 	}, 1200);
+}
+
+function modoOscuro() {
+	const body = document.querySelector("body");
+	body.classList.toggle("dark");
 }

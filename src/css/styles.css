@@ -2,14 +2,23 @@
 
 :root {
     --color-principal: #f1f0ec;
-    --color-secundario: #a33923;
+    --color-secundario: #950101;
     --color-terciario: #b4ac9c;
     --color-resultado: grey;
+
+    --dark-primario: #1d1717;
+    --dark-secundario: #950101;
+    --dark-terciario: #E7D4B5;
+    --dark-resultado: #372b2b;
+
+    --transicion: background-color 0.3s ease, color 0.3s ease; 
 
 
     --fnt-principal: "Montserrat", sans-serif;
     --fnt-secundaria: "Inter", sans-serif;
 }
+
+/* Generales */
 
 html {
     height: 100%;
@@ -23,7 +32,7 @@ body {
     background-color: var(--color-principal);
     margin: 1.5rem auto;
     max-width: 1400px;
-
+    transition: var(--transicion);
 }
 
 
@@ -36,6 +45,8 @@ h1, h2 {
     font-family: var(--fnt-principal);
 }
 
+/* Header */
+
 .header {
     display: flex;
     align-items: center;
@@ -43,10 +54,19 @@ h1, h2 {
     gap: 2rem;
 }
 
+.header__img:hover {
+    cursor: pointer;
+}
+
+
+/* Main */
 .main {
     display: flex;   
     gap: 3rem;
 }
+
+
+/* Main--Section */
 
 #content__text{
     margin: 0rem 2.5rem;
@@ -105,13 +125,11 @@ h1, h2 {
 }
 
 .button--decrypt{
-    border: 1px solid #000000;
     background-color: var(--color-terciario);
 }
 
 .button--copy {
-    border: 1px solid #000000;
-    background-color: #FFFFFF;
+    background-color: var(--color-principal);
     margin-top: auto;
 }
 
@@ -122,6 +140,7 @@ h1, h2 {
     cursor: pointer;
 }
 
+/* Main--Aside */
 
 .aside{
     box-shadow: 1px 1px 10px 1px #dad9d5;
@@ -149,10 +168,25 @@ h1, h2 {
     resize: none;
 }
 
+.content--alert {
+    border: 1px solid #000000;
+    margin-top: 3.83rem;
+    background-color: #9CDBA6;
+    text-align: center;
+    width: 17.5rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-family: var(--fnt-secundaria);
+}
+
 .aside__img {
     width: 15rem;
     height: auto;
 }
+
+
+/* Footer */ 
 
 .footer {
     margin: 2rem 0 0 0;
@@ -161,7 +195,6 @@ h1, h2 {
     align-items: center;
     gap: 3rem;
 }
-
 
 .footer__red{
     display: flex;
@@ -180,17 +213,65 @@ h1, h2 {
     display: none;
 }
 
-.content--alert {
-    border: 1px solid #000000;
-    margin-top: 3.83rem;
-    background-color: #9CDBA6;
-    text-align: center;
-    width: 17.5rem;
-    font-size: 1rem;
-    border-radius: 1rem;
-    font-weight: 600;
-    font-family: var(--fnt-secundaria);
+
+
+/* Modo Oscuro */
+
+.dark {
+    background-color: var(--dark-primario);
 }
+
+.dark .header__title, 
+.dark .warning__info {
+    color: var(--color-principal);
+}
+
+.dark .warning__sign{
+    content: url(../img/signo-exclamacion-blanco.png);
+}
+
+.dark .footer__info {
+    color: var(--color-principal);
+}
+
+.dark .red__git::before {
+    content: url(../img/brand-github-blanco.svg);
+}
+
+.dark .red__link::before {
+    content: url(../img/brand-linkedin-blanco.svg);
+}
+
+.dark .button--encrypt {
+    background-color: var(--dark-secundario);
+}
+
+.dark .button--decrypt {
+    background-color: var(--dark-terciario);
+}
+
+.dark .button--copy {
+    background-color: var(--dark-primario);
+}
+
+.dark #content__text,
+.dark #content__text::placeholder,
+.dark #resultado,
+.dark .aside {
+    background-color: var(--dark-resultado);
+    color: var(--color-principal);
+}
+
+.dark .aside {
+    box-shadow: 1px 1px 10px 1px #0e0e0e;
+}
+
+.dark .content--alert {
+    border: 1px solid #000000;
+    background-color: #68a371;
+    color: #000000;
+}
+
 
 
 /* Media Querys */
