@@ -7,6 +7,7 @@ const imgCompu = document.querySelector(".aside__img");
 const tituloAside = document.querySelector(".aside__title");
 const infoAside = document.querySelector(".aside__info");
 let resultadoExistente = document.querySelector("#resultado");
+const regex = /^[A-ZÁÉÍÓÚÜÑáéíóúüñ]+$/u;
 
 botonEncriptar.addEventListener("click", encriptar);
 botonDesencriptar.addEventListener("click", desencriptar);
@@ -15,10 +16,12 @@ botonCopiar.addEventListener("click", copiar);
 /*  Funciones */
 function encriptar() {
 	const texto = campoTexto.value;
-	if (texto === "")
+	if (texto.trim() === "")
 		return alert(
 			"Necesita ingresar un valor para encriptar o desencriptar"
 		);
+	if (regex.test(texto))
+		return alert("Todo el texto debe estar en minúsculas y sin acentos");
 	let textoEncriptado = "";
 
 	for (let i = 0; i < texto.length; i++) {
@@ -50,10 +53,13 @@ function encriptar() {
 
 function desencriptar() {
 	const texto = campoTexto.value;
-	if (texto === "")
+	if (texto.trim() === "")
 		return alert(
 			"Necesita ingresar un valor para encriptar o desencriptar"
 		);
+	if (regex.test(texto))
+		return alert("Todo el texto debe estar en minúsculas y sin acentos");
+
 	let textoEncriptado = "";
 
 	for (let i = 0; i < texto.length; i++) {
@@ -106,4 +112,21 @@ function mostrarTexto(texto) {
 function copiar() {
 	resultadoExistente.select();
 	document.execCommand("copy");
+	alertaCopiado();
+}
+
+function alertaCopiado() {
+	const divAlerta = document.createElement("div");
+	const texto = document.createElement("p");
+	texto.textContent = "Copiado al portapapeles";
+	divAlerta.classList.add("content--alert");
+
+	divAlerta.appendChild(texto);
+	espacioResultados.appendChild(divAlerta);
+	botonCopiar.classList.add("hide");
+
+	setTimeout(() => {
+		botonCopiar.classList.remove("hide");
+		divAlerta.remove();
+	}, 1200);
 }

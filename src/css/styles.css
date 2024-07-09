@@ -180,6 +180,19 @@ h1, h2 {
     display: none;
 }
 
+.content--alert {
+    border: 1px solid #000000;
+    margin-top: 3.83rem;
+    background-color: #9CDBA6;
+    text-align: center;
+    width: 17.5rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    font-family: var(--fnt-secundaria);
+}
+
+
 /* Media Querys */
 @media (max-width: 768px ) {
     
