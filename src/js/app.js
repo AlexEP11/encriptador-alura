@@ -13,9 +13,11 @@ let resultadoExistente = document.querySelector("#resultado");
 botonEncriptar.addEventListener("click", encriptar);
 botonDesencriptar.addEventListener("click", desencriptar);
 botonCopiar.addEventListener("click", copiar);
+window.addEventListener("DOMContentLoaded", mensaje);
 pod.addEventListener("click", modoOscuro);
 
 /*  Funciones */
+
 function encriptar() {
 	const texto = campoTexto.value;
 	if (texto.trim() === "" || !isNaN(texto))
@@ -136,4 +138,14 @@ function alertaCopiado() {
 function modoOscuro() {
 	const body = document.querySelector("body");
 	body.classList.toggle("dark");
+}
+
+function mensaje() {
+	const alerta = document.querySelector("#alerta");
+
+	alerta.classList.add("show");
+
+	setTimeout(() => {
+		alerta.classList.add("hide");
+	}, 3000); 
 }
