@@ -74,6 +74,7 @@ h1, h2 {
     align-items: center; 
     min-width: 0;
 }
+
 .warning__dark.show {
     right: 0%;
     opacity: 1;
@@ -121,9 +122,14 @@ h1, h2 {
     margin: 0rem 2.5rem 1rem 2.5rem;
     display: flex;
     align-items: center;
-    gap: .5rem;
+    justify-content: space-between;
 }
 
+.content__warning--info {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
 
 .warning__sign {
     width: 1rem;
@@ -132,6 +138,14 @@ h1, h2 {
 
 .warning__info {
     font-size: .8rem;
+}
+
+.microfono--red {
+    content: url(../img/microfono-rojo.png);
+}
+
+.microfono:hover {
+    cursor: pointer ;
 }
 
 .content__button {
@@ -272,6 +286,14 @@ h1, h2 {
 
 .dark .red__link::before {
     content: url(../img/brand-linkedin-blanco.svg);
+}
+
+.dark .microfono {
+    content: url(../img/microfono-blanco.png);
+}
+
+.dark .microfono--red {
+    content: url(../img/microfono-rojo.png);
 }
 
 .dark .button--encrypt {

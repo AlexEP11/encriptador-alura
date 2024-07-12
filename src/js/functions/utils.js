@@ -1,4 +1,4 @@
-import { resultadoExistente, botonCopiar, imgCompu, tituloAside, infoAside, espacioResultados } from "../variables.js"
+import { resultadoExistente, botonCopiar, imgCompu, tituloAside, infoAside, espacioResultados, micro, campoTexto, estaGrabando} from "../variables.js"
 
 export function mostrarTexto(texto) {
 	if (!resultadoExistente.value) {
@@ -51,4 +51,40 @@ export function mensaje() {
 	setTimeout(() => {
 		alerta.classList.add("hide");
 	}, 3000); 
+}
+
+
+export function eliminarAcentos(texto) {
+    return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
+export function grabarVoz() {
+	
+    micro.classList.add("microfono--red");
+
+    const SpeechRecognition = window.webkitSpeechRecognition || SpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = "es-MX";
+
+    recognition.onresult = function(event) {
+        campoTexto.value = eliminarAcentos(event.results[0][0].transcript).toLowerCase();
+    };
+
+    recognition.onend = function() {
+        if (estaGrabando.value) {
+            recognition.start();
+        } else {
+            micro.classList.remove("microfono--red");	
+        }
+    };
+
+    if (!estaGrabando.value) {
+        // Iniciar la grabación
+        recognition.start();
+        estaGrabando.value = true;
+    } else {
+        // Detener la grabación
+        recognition.stop();
+        estaGrabando.value = false;
+    }
 }

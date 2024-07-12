@@ -8,6 +8,9 @@ export const tituloAside = document.querySelector(".aside__title");
 export const infoAside = document.querySelector(".aside__info");
 export const pod = document.querySelector(".header__img");
 export const regex = /^[^A-ZÁÉÍÓÚÜÑáéíóúüñ]+$/;
+export const micro = document.querySelector(".microfono");
 export let resultadoExistente = {
     value: document.querySelector("#resultado")};
-    
+export let estaGrabando = {
+    value: false
+};
